@@ -25,6 +25,7 @@ body {
 
 <script>
 const words = [
+
 "Heart Surgery",
 "Apollo II",
 "White Chocolate Tim Tams",
@@ -80,9 +81,22 @@ const words = [
 
 const wordElement = document.getElementById("word");
 
+let lastIndex = -1;
+
 function updateWord() {
-    const randomWord = words[Math.floor(Math.random() * words.length)];
-    wordElement.textContent = randomWord;
+
+    let index;
+
+    do {
+
+        index = Math.floor(Math.random() * words.length);
+
+    } while (index === lastIndex);
+
+    lastIndex = index;
+
+    wordElement.textContent = words[index];
+
 }
 
 updateWord();
