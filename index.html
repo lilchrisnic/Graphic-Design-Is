@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>X Is</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 20vh;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    X is <span id="word"></span>
+</div>
+
+<script>
+const words = [
+    "fast",
+    "strong",
+    "determined",
+    "relentless",
+    "legendary"
+];
+
+const wordElement = document.getElementById("word");
+
+function updateWord() {
+    const randomWord = words[Math.floor(Math.random() * words.length)];
+    wordElement.textContent = randomWord;
+}
+
+updateWord();
+setInterval(updateWord, 3000); // change every 3 seconds
+</script>
+
+</body>
+</html>
