@@ -2,109 +2,109 @@
 <html>
 <head>
     <title>Graphic Design is...</title>
+
     <style>
+        body {
+            margin: 0;
+            height: 100vh;
 
-body {
-    margin: 0;
-    height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            text-align: center;
+        }
 
-    font-family: Arial, sans-serif;
-    font-size: 30px;
-    text-align: center;
-}
-#word {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    text-align: center;
-     font-size: 50px;
-}
-</style>
+        #word {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
 </head>
+
 <body>
 
 <div>
-    Graphic Design is... <br> <span id="word"></span>
+    Graphic Design is... <br>
+    <span id="word"></span>
 </div>
 
 <script>
-  
-}    
-    
 const words = [
-"Heart Surgery.",
-"Apollo II.",
-"White Chocolate Tim Tams.",
-"The Atom Bomb.",
-"Kim Kardashian.",
-"Blood Glucose Monitoring.",
-"Large Hadron Collider.",
-"Bitcoin.",
-"iPhone 3Gs.",
-"The Pink Zooper Dooper.",
-"Myki Fines.",
-"Quantum Computing.",
-"Chemotherapy.",
-"BBQ Shapes.",
-"The Holy Bible.",
-"Coburg Station.",
-"Science Fiction.",
-"Religious Iconography.",
-"Female Toilets.",
-"Mathematics.",
-"Long Division.",
-"Filing Cabinets.",
-"Athletics Carnivals.",
-"A Spiderman Halloween Costume.",
-"IKEA Furniture (Assembled).",
-"Free Wi-Fi.",
-"Janitors Closet.",
-"Loyalty Programs.",
-"Terms and Conditions.",
-"Family Recipes.",
-"Express Shipping.",
-"Piano Lessons.",
-"Facial Recognition.",
-"Sexting.",
-"Shampoo / Conditioner.",
-"Lunch Time.",
-"Death by Anaphylactic Shock (Accidental).",
-"Justin Bieber Under the Mistletoe (Deluxe Edition CD).",
-"The Moon Landing.",
-"Miami.",
-"Intermittent Fasting.",
-"Adult Diapers.",
-"Microsoft.",
-"Life.",
-"Death.",
-"Lab-Grown Diamonds.",
-"NFTs.",
-"Big Pharmaceuticals.",
-"Social Distancing.",
-"Divorce.",
-"Decaf.",
-"No Parking Zone.",
-"Edible Flowers.",
-"Medical Marijuana.",
-"The Perm.",
-"Waffles, instead of Pancakes.",
-"The 2003 Iraq War."
+    "Heart Surgery.",
+    "Apollo II.",
+    "White Chocolate Tim Tams.",
+    "The Atom Bomb.",
+    "Kim Kardashian.",
+    "Blood Glucose Monitoring.",
+    "Large Hadron Collider.",
+    "Bitcoin.",
+    "iPhone 3Gs.",
+    "The Pink Zooper Dooper.",
+    "Myki Fines.",
+    "Quantum Computing.",
+    "Chemotherapy.",
+    "BBQ Shapes.",
+    "The Holy Bible.",
+    "Coburg Station.",
+    "Science Fiction.",
+    "Religious Iconography.",
+    "Female Toilets.",
+    "Mathematics.",
+    "Long Division.",
+    "Filing Cabinets.",
+    "Athletics Carnivals.",
+    "A Spiderman Halloween Costume.",
+    "IKEA Furniture (Assembled).",
+    "Free Wi-Fi.",
+    "Janitors Closet.",
+    "Loyalty Programs.",
+    "Terms and Conditions.",
+    "Family Recipes.",
+    "Express Shipping.",
+    "Piano Lessons.",
+    "Facial Recognition.",
+    "Sexting.",
+    "Shampoo / Conditioner.",
+    "Lunch Time.",
+    "Death by Anaphylactic Shock (Accidental).",
+    "Justin Bieber Under the Mistletoe (Deluxe Edition CD).",
+    "The Moon Landing.",
+    "Miami.",
+    "Intermittent Fasting.",
+    "Adult Diapers.",
+    "Microsoft.",
+    "Life.",
+    "Death.",
+    "Lab-Grown Diamonds.",
+    "NFTs.",
+    "Big Pharmaceuticals.",
+    "Social Distancing.",
+    "Divorce.",
+    "Decaf.",
+    "No Parking Zone.",
+    "Edible Flowers.",
+    "Medical Marijuana.",
+    "The Perm.",
+    "Waffles, instead of Pancakes.",
+    "The 2003 Iraq War."
 ];
 
 const wordElement = document.getElementById("word");
 
-      let currentIndex = 0;
+let currentIndex = 0;
 
 function updateWord() {
-    word.textContent = words[currentIndex];
+    wordElement.textContent = words[currentIndex];
     currentIndex = (currentIndex + 1) % words.length;
+}
 
 updateWord();
-setInterval(updateWord, 1000); // change every 3 seconds
-    
+setInterval(updateWord, 1000);
 </script>
 
 </body>
