@@ -31,6 +31,15 @@ body {
 </div>
 
 <script>
+    let currentIndex = 0;
+
+function updateWord() {
+    word.textContent = words[currentIndex];
+    currentIndex = (currentIndex + 1) % words.length;
+}
+
+updateWord();
+setInterval(updateWord, 1000);
 const words = [
 
 "Heart Surgery.",
@@ -94,23 +103,7 @@ const words = [
 
 const wordElement = document.getElementById("word");
 
-let lastIndex = -1;
 
-function updateWord() {
-
-    let index;
-
-    do {
-
-        index = Math.floor(Math.random() * words.length);
-
-    } while (index === lastIndex);
-
-    lastIndex = index;
-
-    wordElement.textContent = words[index];
-
-}
 updateWord();
 setInterval(updateWord, 1000); // change every 3 seconds
 </script>
