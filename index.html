@@ -1,37 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Graphic Design is...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic Design is...</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
+<style>
+    body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        background: white;
+        font-family: Arial, sans-serif;
+    }
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    /* Center title */
+    #title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
-            font-family: Arial, sans-serif;
-            font-size: 30px;
-          
-        }
+        font-size: 30px;
+        font-weight: normal;
+        text-align: center;
 
-        #word {
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-        
-            font-size: 50px;
-        }
-    </style>
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    /* Random subjects */
+    .word {
+        position: absolute;
+        font-size: 50px;
+        font-weight: bold;
+        white-space: nowrap;
+        color: black;
+        pointer-events: none;
+    }
+</style>
 </head>
 
 <body>
 
-<div>
-    Graphic Design is... <br>
-    <span id="word"></span>
-</div>
+<div id="title">Graphic Design is...</div>
 
 <script>
 const words = [
@@ -94,17 +108,39 @@ const words = [
     "The 2003 Iraq War."
 ];
 
-const wordElement = document.getElementById("word");
-
 let currentIndex = 0;
 
-function updateWord() {
-    wordElement.textContent = words[currentIndex];
+function addWord() {
+    const word = document.createElement("div");
+    word.className = "word";
+    word.textContent = words[currentIndex];
+
+    let x, y;
+
+    // Keep words away from the center title
+    do {
+        x = Math.random() * (window.innerWidth - 300);
+        y = Math.random() * (window.innerHeight - 80);
+    } while (
+        x > window.innerWidth / 2 - 300 &&
+        x < window.innerWidth / 2 + 300 &&
+        y > window.innerHeight / 2 - 120 &&
+        y < window.innerHeight / 2 + 120
+    );
+
+    word.style.left = `${x}px`;
+    word.style.top = `${y}px`;
+
+    document.body.appendChild(word);
+
     currentIndex = (currentIndex + 1) % words.length;
 }
 
-updateWord();
-setInterval(updateWord, 1000);
+// Add first word immediately
+addWord();
+
+// Add a new word every second
+setInterval(addWord, 1000);
 </script>
 
 </body>
